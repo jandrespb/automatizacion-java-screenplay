@@ -39,10 +39,10 @@ dependencies {
     implementation "net.serenity-bdd:serenity-junit:${serenityJunit}"
     testImplementation "net.serenity-bdd:serenity-cucumber:${serenityCucumber}"
     implementation "net.serenity-bdd:serenity-core:${serenityCore}"
+    implementation "net.serenity-bdd:serenity-screenplay:${serenityCore}"
+    implementation "net.serenity-bdd:serenity-screenplay-webdriver:${serenityCore}"
     testImplementation "org.slf4j:slf4j-simple:${slf4jSimple}"
     implementation "com.google.guava:guava:${googleGuava}"
-
-
 }
 
 //Configurar propiedades del comando de ejecucion de pruebas con gradle
