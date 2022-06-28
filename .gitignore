@@ -1,0 +1,8 @@
+
+#INTELLIJ IDEA
+# User-specific stuff:
+.idea/
+
+#Serenity
+target/
+build/
