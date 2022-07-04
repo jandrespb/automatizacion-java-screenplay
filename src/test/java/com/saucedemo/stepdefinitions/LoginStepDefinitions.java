@@ -1,5 +1,7 @@
 package com.saucedemo.stepdefinitions;
 
+import com.saucedemo.models.LoginModels;
+import com.saucedemo.tasks.LoginSwagLabs;
 import com.saucedemo.tasks.OpenPageSwagLabs;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
@@ -10,6 +12,8 @@ import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.thucydides.core.annotations.Managed;
 import org.openqa.selenium.WebDriver;
+
+import java.util.List;
 
 public class LoginStepDefinitions {
 
@@ -30,8 +34,11 @@ public class LoginStepDefinitions {
     }
 
     @When("^User put credentials$")
-    public void userPutCredentials() {
-
+    public void userPutCredentials(List<LoginModels> credentials) {
+        LoginModels users = credentials.get(0);
+        OnStage.theActorInTheSpotlight().attemptsTo(
+                LoginSwagLabs.addCredentialsLogin(users)
+        );
     }
 
     @Then("^User looking home page$")
