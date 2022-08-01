@@ -1,16 +1,19 @@
 package com.saucedemo.stepdefinitions;
 
 import com.saucedemo.models.LoginModels;
+import com.saucedemo.questions.TitleHomeSwagLabsQuestion;
 import com.saucedemo.tasks.LoginSwagLabs;
 import com.saucedemo.tasks.OpenPageSwagLabs;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import net.serenitybdd.screenplay.GivenWhenThen;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.thucydides.core.annotations.Managed;
+import org.hamcrest.Matchers;
 import org.openqa.selenium.WebDriver;
 
 import java.util.List;
@@ -44,5 +47,7 @@ public class LoginStepDefinitions {
     @Then("^User looking home page$")
     public void userLookingHomePage() {
 
+        OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat("Title catalog home page",
+                TitleHomeSwagLabsQuestion.valueTitleHome(), Matchers.equalTo("PRODUCTS")));
     }
 }
